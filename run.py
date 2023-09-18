@@ -1,29 +1,36 @@
 from datetime import datetime
 
 # Function to display the available items
+
+
 def display_item_list():
     print("Available Items:")
-    print(lists)  
+    print(lists)
 
 # Function to get the user's item choice
+
+
 def get_user_item_choice():
     while True:
         item = input("Enter the item you want to buy: ")
-        if item in items: 
+        if item in items:
             return item
         else:
             print("Invalid item! Please enter a valid item.")
 # Function to get the user's desired quantity for the item
+
+
 def get_user_item_quantity():
     while True:
         try:
-            quantity = int(input("Enter the quantity you want to buy: "))  
-            if quantity > 0:  
+            quantity = int(input("Enter the quantity you want to buy: "))
+            if quantity > 0:
                 return quantity
             else:
-                print("Invalid quantity! Please enter a valid quantity.")  
+                print("Invalid quantity! Please enter a valid quantity.")
         except ValueError:
-            print("Invalid input! Please enter a valid numeric quantity.")  
+            print("Invalid input! Please enter a valid numeric quantity.")
+
 
 # Main program starts here
 print("------------------------ Welcome to SuperMarket --------------------------------")
@@ -123,7 +130,8 @@ if buying:
     if input2.lower() == 'yes':
         # Calculate GST (5%) and the final price
         Gst = (total_price * 5) / 100
-        final_price = round(Gst + total_price,2)# round final-price up to two decimals
+        # round final-price up to two decimals
+        final_price = round(Gst + total_price, 2)
 
         # Print the bill details
         print("=" * 75)
@@ -131,12 +139,14 @@ if buying:
         print(" " * 30, "Kanchi")
         print("Name:", name, 30 * " ", "Date:", datetime.now())
         print(75 * "-")
-        print("S.no:", 6 * " ", "Item", 14 * " ", "Quantity", 14 * " ", "Price")
+        print("S.no:", 6 * " ", "Item", 14 *
+              " ", "Quantity", 14 * " ", "Price")
         print(75 * "-")
 
         # Print the bill details for each purchased item
         for i in range(len(pricelist)):
-         print("{:<12} {:<22} {:<20} {} €/-".format(i + 1, itemList[i], quanList[i], priceList[i]))
+            print("{:<12} {:<22} {:<20} {} €/-".format(i +
+                  1, itemList[i], quanList[i], priceList[i]))
 
         # Print separators and the total price, GST, and final price
         print(75 * "-")
@@ -151,4 +161,4 @@ if buying:
     else:
         print("Thank you for visiting our SuperMarket. Have a great day!")
 else:
-    print("Thank you, visit again!\n")    
+    print("Thank you, visit again!\n")
