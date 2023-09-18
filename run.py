@@ -59,7 +59,29 @@ items = {
     'Bread': 3.00
 }
 
+total_price = 0
+pricelist = []
+itemList = []
+quanList = []
+priceList = []
 
+option = int(input("To view the list of items, press 1: "))
+
+# Check if the user selected option 1 to view the list of items
+if option == 1:
+    display_item_list()  # Call the function to display the item list
+
+# Initialize 'buying' to False
+buying = False
+
+while True:
+    print("Select an option:")
+    print("1. Buy items")
+    print("2. Exit")
+    input1 = int(input())
+    # Check if the user selected option 2 to exit the loop
+    if input1 == 2:
+        break  # Exit the loop and terminate the program
 
 
 
