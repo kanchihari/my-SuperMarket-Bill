@@ -113,3 +113,22 @@ if buying:
         print(75 * "-")
         print("S.no:", 6 * " ", "Item", 14 * " ", "Quantity", 14 * " ", "Price")
         print(75 * "-")
+
+        # Print the bill details for each purchased item
+        for i in range(len(pricelist)):
+         print("{:<12} {:<22} {:<20} {} €/-".format(i + 1, itemList[i], quanList[i], priceList[i]))
+
+        # Print separators and the total price, GST, and final price
+        print(75 * "-")
+        print("Total Price: {:<53}{} €/-".format(' ', total_price))
+        print("GST Tax (5%):{:<52} {} €/-".format(' ', Gst))
+        print(75 * "-")
+        print("Final Price: {:<50}{} €/-".format(' ', final_price))
+        print(75 * "=")
+
+        # Thank the user for visiting the supermarket
+        print("{}Thanks for visiting our SuperMarket".format(' ' * 25))
+    else:
+        print("Thank you for visiting our SuperMarket. Have a great day!")
+else:
+    print("Thank you, visit again!\n")    
