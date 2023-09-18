@@ -82,6 +82,16 @@ while True:
     # Check if the user selected option 2 to exit the loop
     if input1 == 2:
         break  # Exit the loop and terminate the program
+    # if the user selected option 1 that is to buy items.
+    elif input1 == 1:
+        buying = True
+        item = get_user_item_choice() 
 
-
+        quantity = get_user_item_quantity() 
+        price = quantity * items[item]  
+        pricelist.append((item, quantity, items[item], price)) 
+        total_price += price  
+        itemList.append(item)  
+        quanList.append(quantity)  
+        priceList.append(price)
 
