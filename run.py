@@ -12,7 +12,7 @@ def display_item_list():
 
 def get_user_item_choice():
     while True:
-        item = input("Enter the item you want to buy: ")
+        item = input("Enter the item you want to buy: \n")
         if item in items:
             return item
         else:
@@ -23,7 +23,7 @@ def get_user_item_choice():
 def get_user_item_quantity():
     while True:
         try:
-            quantity = int(input("Enter the quantity you want to buy: "))
+            quantity = int(input("Enter the quantity you want to buy: \n"))
             if quantity > 0:
                 return quantity
             else:
@@ -36,7 +36,7 @@ def get_user_item_quantity():
 print("------------------------ Welcome to SuperMarket --------------------------------")
 
 # Prompt the user for their name
-name = input("Enter Your name: ")
+name = input("Enter Your name: \n")
 
 # List of items along with their prices in euros per unit or per kilogram/liter
 lists = '''
@@ -73,7 +73,7 @@ quanList = []
 priceList = []
 
 while True:
-    option = input("To view the list of items, press 1: ")
+    option = input("To view the list of items, press 1: \n")
 
     # Check if the option is valid
     if option.isdigit() and int(option) in [1]:
@@ -95,7 +95,7 @@ while True:
     print("2. Exit")
 
     # Prompt the user for input
-    input_str = input("Enter your choice (1 or 2): ")
+    input_str = input("Enter your choice (1 or 2): \n")
 
     # Check if the input is an integer
     if input_str.isdigit():
@@ -124,7 +124,7 @@ else:
 
 # Check if the user is in buying mode
 if buying:
-    input2 = input("Do you want to bill the items (yes or no): ")
+    input2 = input("Do you want to bill the items (yes or no): \n")
 
     # Check if the user wants to generate a bill
     if input2.lower() == 'yes':
