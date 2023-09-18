@@ -65,7 +65,15 @@ itemList = []
 quanList = []
 priceList = []
 
-option = int(input("To view the list of items, press 1: "))
+while True:
+    option = input("To view the list of items, press 1: ")
+
+    # Check if the option is valid
+    if option.isdigit() and int(option) in [1]:
+        option = int(option)
+        break
+    else:
+        print("Invalid option! Please enter a valid option .")
 
 # Check if the user selected option 1 to view the list of items
 if option == 1:
@@ -78,22 +86,34 @@ while True:
     print("Select an option:")
     print("1. Buy items")
     print("2. Exit")
-    input1 = int(input())
-    # Check if the user selected option 2 to exit the loop
-    if input1 == 2:
-        break  # Exit the loop and terminate the program
-    # if the user selected option 1 that is to buy items.
-    elif input1 == 1:
-        buying = True
-        item = get_user_item_choice() 
 
-        quantity = get_user_item_quantity() 
-        price = quantity * items[item]  
-        pricelist.append((item, quantity, items[item], price)) 
-        total_price += price  
-        itemList.append(item)  
-        quanList.append(quantity)  
-        priceList.append(price)
+    # Prompt the user for input
+    input_str = input("Enter your choice (1 or 2): ")
+
+    # Check if the input is an integer
+    if input_str.isdigit():
+        input1 = int(input_str)
+        # Check if the input is either 1 or 2
+        if input1 in [1, 2]:
+            break  # Valid input, break the loop
+        else:
+            print("Invalid input! Please enter a valid option (1 or 2).")
+    else:
+        print("Invalid input! Please enter a valid option (1 or 2).")
+
+if input1 == 2:
+    print("Thank you for visiting our SuperMarket. Have a great day!")
+else:
+    buying = True
+    item = get_user_item_choice()
+
+    quantity = get_user_item_quantity()
+    price = quantity * items[item]
+    pricelist.append((item, quantity, items[item], price))
+    total_price += price
+    itemList.append(item)
+    quanList.append(quantity)
+    priceList.append(price)
 
 # Check if the user is in buying mode
 if buying:
@@ -103,7 +123,7 @@ if buying:
     if input2.lower() == 'yes':
         # Calculate GST (5%) and the final price
         Gst = (total_price * 5) / 100
-        final_price = Gst + total_price
+        final_price = round(Gst + total_price,2)# round final-price up to two decimals
 
         # Print the bill details
         print("=" * 75)
@@ -123,7 +143,7 @@ if buying:
         print("Total Price: {:<53}{} €/-".format(' ', total_price))
         print("GST Tax (5%):{:<52} {} €/-".format(' ', Gst))
         print(75 * "-")
-        print("Final Price: {:<50}{} €/-".format(' ', final_price))
+        print("Final Price: {:<52}{} €/-".format(' ', final_price))
         print(75 * "=")
 
         # Thank the user for visiting the supermarket
